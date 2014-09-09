@@ -1,0 +1,12 @@
+<launch>
+    <arg name="machine" default="localhost" />
+    <arg name="user" default="strands" />
+
+    <machine name="$(arg machine)" address="$(arg machine)" env-loader="/opt/strands/strands_catkin_ws/devel/env.sh" user="$(arg user)" default="true"/>
+
+   <node name="ptu_routines" pkg="linda_routines" type="ptu_sweep_routine.py"/>
+
+</launch> 
+
+
+

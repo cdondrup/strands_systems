@@ -3,7 +3,7 @@
     <arg name="user" default="strands" />
     <arg name="laser" default="/dev/laser" />
     <arg name="scitos_config" default="$(find scitos_mira)/resources/SCITOSDriver-with-udev.xml"/>
-    <arg name="with_mux" default="true" />
+    <arg name="with_mux" default="false"/>
     <arg name="chest_camera" default="true" />
     <arg name="chest_ip" default="right-cortex" />
     <arg name="head_camera" default="true" />
@@ -65,7 +65,6 @@
 
 	<!--- Teleop Joystick -->
      <include unless="$(arg with_mux)" file="$(find scitos_teleop)/launch/teleop_joystick.launch">
-        <arg name="js" value="$(arg js)" />
 	    <arg name="machine"  value="$(arg machine)"/>
 	    <arg name="user"  value="$(arg user)"/>
     </include>

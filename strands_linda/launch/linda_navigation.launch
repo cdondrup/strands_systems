@@ -4,11 +4,11 @@
     <arg name="with_camera" default="true"/>
     <arg name="camera" default="chest_xtion"/>
     <arg name="camera_ip" default="right-cortex"/>
-    <arg name="map" default="/opt/strands/maps/WW_2014_06_18-cropped.yaml"/>
+    <arg name="map" default="/opt/strands/maps/WW_2014_07_08-cropped.yaml"/>
     <arg name="with_no_go_map" default="true"/>
-    <arg name="no_go_map" default="/opt/strands/maps/WW_2014_06_18-nogo.yaml"/>
-    <arg name="with_mux" default="true" />
-    <arg name="topological_map" default="WW_2014_06_18"/>
+    <arg name="no_go_map" default="/opt/strands/maps/WW_2014_07_08-nogo.yaml"/>
+    <arg name="with_mux" default="false" />
+    <arg name="topological_map" default="WW_2014_07_08"/>
 
 
     <machine name="$(arg machine)" address="$(arg machine)" env-loader="/opt/strands/strands_catkin_ws/devel/env.sh" user="$(arg user)" default="true"/>
@@ -30,4 +30,6 @@
 	<node name="gaze_at_pose" pkg="strands_gazing" type="gaze_at_pose"/>
 	<node name="pose_extractor" pkg="pose_extractor" type="extract_last_pose_from_path.py"/>
 	<node name="human_aware_navigation" pkg="strands_human_aware_navigation" type="human_aware_navigation.py"/>
+	<node name="strands_emails" pkg="strands_emails" type="send_emails.py"/>
+	<node name="patrol_alerts" pkg="patrol_alerts" type="alert.py"/>
 </launch>

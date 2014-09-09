@@ -1,0 +1,17 @@
+<launch>
+    <arg name="machine" default="localhost" />
+    <arg name="user" default="strands" />
+    <arg name="topological_map" default="WW_2014_07_08" />
+
+    <machine name="$(arg machine)" address="$(arg machine)" env-loader="/opt/strands/strands_catkin_ws/devel/env.sh" user="$(arg user)" default="true"/>
+
+    <node name="patrol_snapshot" pkg="patrol_snapshot" type="snapshot.py"/>
+    <node name="upload_cloud_data" pkg="upload_cloud_data" type="upload.py"/>
+
+    <include file="$(find linda_routines)/launch/planner.launch">
+        <arg name="topological_map"  value="$(arg topological_map)"/>
+    </include>
+    <include file="$(find strands_linda)/launch/ptu_sweep.launch"/>
+
+
+</launch>
